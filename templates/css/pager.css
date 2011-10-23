@@ -1,0 +1,163 @@
+body{
+margin-top:2px;
+padding:0;
+font-family:Georgia ,Microsoft YaHei ;
+color:#444;
+background-color:#333;
+/*text-shadow: 0px 2px 0px #fff;
+font-family: Georgia, Microsoft YaHei, Tahoma,Serif ;*/
+}
+
+#wrapper{
+margin:0 auto;
+width:900px;
+min-height:800px;
+background-color:#c2dce6;		
+border:1px solid #ccc;
+border-radius:12px;
+}
+
+header{
+padding:1em 2em 0 2em;
+}
+
+#manager{
+width:300px;
+float:left;
+padding-left:2em;
+text-align:right;
+/*border:1px solid #666666;*/
+}
+
+#info{
+float:right;
+margin-top:1em;
+width:500px;
+padding:0 2em 0 1.5em;
+height: 500px;
+max-height:510px;
+border-left:1px dashed #FF99FF;
+/*text-shadow: 0px 2px 0px #fff;*/
+}
+#info p{
+margin:0 0 .5em 0;
+border-bottom:1px dashed #FF99FF;
+}
+
+input{
+margin-top:0.4em;
+padding:3px;
+border: 1px solid #888;
+background-color:#EBEBEB;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius:5px;
+}
+.input_25{
+width: 2.5em;
+}
+
+.input_6{
+width: 6em;
+}
+
+.input_9{
+width: 9em;
+}
+
+.input_3{
+width: 3em;
+}
+
+.input_3.5{
+width: 3.5em;
+}
+
+.input_12{
+width: 12em;
+}
+
+.select{
+font-size:12px;
+width:6em;
+padding:5px;
+margin-right: 0.1em;
+margin-bottom: 0.5em;
+}
+
+.small_title {
+font-size: 20px;
+margin-bottom: 5px;
+}
+
+.bigfont {
+/*font-weight: bold;*/
+font-size: 22px;
+}
+.mediufont {
+font-size: 18px;
+}
+.smallfont {
+font-size: 15px;
+}
+
+.separator {
+border-bottom: 1px dashed #FF99FF;
+margin-bottom: 0.5em;
+}
+
+label{
+margin-bottom: 0.5em;
+margin-right:0em;
+/*font-weight: bold;*/
+font-size: 16px;
+text-align:center;
+}
+
+label.error {
+color:#FF0066;
+font-size:14px;
+margin-left:0.5em;
+}
+
+.form_button {	
+font-size:13px;
+font-family:  Microsoft YaHei ;
+margin-right:.5em;
+}
+
+.btn_down{/*°´¼ü±»µã»÷*/
+font-size:14px;
+font-family:  Microsoft YaHei ; 
+margin-right:.5em;
+}
+
+img{
+cursor:pointer;
+}
+
+form a{
+color:#444;
+margin-right:.5em;
+}
+
+form a:hover{
+color:#666;
+}
+
+.back,.back a{
+float:right;
+margin-top:2em;
+}
+.back a{
+background:url(../img/back.png);
+width:80px; 
+height:45px; 
+display:block;}
+.back a:hover{
+background:url(../img/backhover.png);
+}
+.back a span{
+display:none;
+}
+

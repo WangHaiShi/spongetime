@@ -1,0 +1,110 @@
+/*********************
+首页、用户菜单页样式
+**********************/
+/**/
+#content{
+width:100%;
+height:100%;
+}
+
+
+input {
+	padding: 3px;
+	border: 1px solid #808080;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.images img{
+    display:none;
+    position:absolute;
+    left:6px;
+    top:6px;
+}
+
+a.me, a.plan,a.lookover {  
+	font-weight:700;
+	font-size:20px;
+	color:#f0f0f0;
+	text-decoration:none;
+	text-shadow:1px 1px 1px #aaa;
+	height:30px;
+    
+	clear:both;
+    /*background:transparent url(../img/images/menu.png) no-repeat top left;*/
+}
+a.me{
+    width:88px;
+}
+a.plan{
+    width:100px;
+}
+a.lookover{
+    width:88px;
+}
+a.me:hover, a.plan:hover,a.lookover:hover{
+    /*opacity:0.8;*/
+	color:#FF9900;
+	text-shadow:2px 2px 2px #aaa;
+}
+a.me, a.plan,a.lookover li{
+    list-style:none;
+}
+.circle{
+	text-align:center;
+    margin-top:-18px;
+    margin-left:-168px;
+    width:176px;
+    height:176px;
+    position:absolute;
+    left:0;
+    top:0;
+    background:transparent url(../img/images/circle2.png) no-repeat top left;
+    z-index:10;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+.description{
+	padding-top:12px;
+    width:120px;
+    margin:30px auto;
+}
+.description ul{
+    list-style:none;
+    text-align:center;
+}
+.description ul a{
+	font-weight:700;
+	font-size:17px; 
+    line-height:30px;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    text-shadow:1px 1px 2px #aaa;	
+}
+.description ul a:hover{
+	font-weight:600;
+    color:#FF9900;
+}
+
+.smallfont {
+		font-size: 18px;
+		width:80%;
+		margin:0px auto;
+		border-bottom: 1px dashed #FF9966;
+}
+
+.navigation_button {	
+		font-size:13px;
+		font-family:  Microsoft YaHei ;
+		text-shadow: 0px 2px 0px #fff;
+		margin-right:1em;
+		outline:none ;
+	}
+.btn_mouseout{
+		height:30px;
+		font-size:16px;
+		font-family:  Microsoft YaHei ;
+		text-shadow: 0px 2px 0px #fff;
+		margin-right:1em;
+	}

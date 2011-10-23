@@ -1,0 +1,183 @@
+$(function() {
+/**
+get Json 
+*/
+$.getJSON("json.php", function(data){
+	$.each(data,function(listIndex,list){ 
+		var time=list['not_time'];
+		var content=list['not_content'];
+		setInterval(function(){alarm(time,content)},35000);
+	});          		
+});
+
+/**
+启动时钟
+*/
+startclock(); 
+
+/**
+checkbox
+*/
+$('input[type="checkbox"]').ezMark();
+
+/**
+circle_menu
+*/
+//move($('#do'),2000,2);
+//alert('ready!');
+$('#menu > li a').mouseover(
+	function(){
+		var $this = $(this);
+		move($this,800,1);
+	}); 		
+/*
+function to animate / show one circle.
+speed is the time it takes to show the circle
+turns is the turns the circle gives around the big circle
+*/
+function move($elem,speed,turns){
+var id = $elem.attr('id');
+var $circle = $('#menu_'+id);
+//alert($circle);
+/* if hover the same one nothing happens */
+if($circle.css('opacity')==1)
+	return;
+
+/*
+if there's a circle already, then let's remove it:
+either animate it in a circular movement or just fading out, depending on the current position of it
+ */
+$('#wrapper .nav_list').each(function(i){
+	var $theCircle = $(this);
+	if($theCircle.css('opacity')==1)
+		$theCircle.stop()
+	.animate({
+		path : new $.path.arc({
+			center	: [70,80],
+			radius	: 180,
+			start	: 100,
+			end     : 175,
+			dir	: -1
+		}),
+		opacity: '0'
+	},1600);
+	else
+		$theCircle.stop()
+	.animate({opacity: '0'},260);
+});
+
+/* make the circle appear in a circular movement */
+var end = 100 - 360 * (turns-1);
+$circle.stop()
+	.animate({
+		path : new $.path.arc({
+			center	: [70,80],
+			radius	: 180,
+			start	: 200,
+			end		: end,
+			dir		: -1
+		}),
+		opacity: '1'
+	},speed);
+}
+});
+
+/**
+set clock
+*/
+var timerID = null;
+var timerRunning = false;
+function stopclock (){
+  if(timerRunning)
+  clearTimeout(timerID);
+  timerRunning = false;
+}
+function startclock () {
+  stopclock();
+  showtime();
+}
+function showtime () {
+  var now = new Date(),
+		 day = new Array("周日", "周一", "周二", "周三", "周四", "周五", "周六")[now.getDay()],
+		 hours = now.getHours(),
+		 minutes = now.getMinutes(),
+		 seconds = now.getSeconds(),
+		 timeValue=day+"/"+hours+((minutes < 10) ? ":0" : ":") + minutes+((seconds < 10) ? ":0" : ":") + seconds;
+	//timeValue +=  ((hours >= 12) ? " pm " : " am " );
+  $('#time').html(timeValue);
+  timerID = setTimeout('showtime()',1000);
+  timerRunning = true;
+}
+
+/**
+alarm
+*/
+function alarm(time,content){		
+	 var html = '',
+	 now=new Date(),
+	 hours = now.getHours(),
+	 minutes = now.getMinutes(),
+	 seconds = now.getSeconds(),
+	 timeValue = ((hours < 10) ? "0" : "") + hours;
+	 timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+	 
+	 //alert(timeValue+time);
+	 if(timeValue==time){
+		//alert('popup!');
+		notify(time,content);
+	 }
+}
+
+/**
+remind with effects
+all the browerses availably
+*/
+function reEffects(){
+$('#dashboard').effect("bounce", { times:5 }, 400);
+$("#audio")[0].play();
+}
+
+/**
+notification
+chrome availably
+*/
+function notify(time,content){
+  var notifier = new Notifier();
+  if (!notifier.HasSupport()) {
+	alert("error");
+	return;
+  }
+	notifier.RequestPermission();
+	notifier.Notify("", time, content);
+}
+
+/**
+API notification init
+*/
+function Notifier() {}
+// browser supports
+Notifier.prototype.HasSupport = function() {
+  if (window.webkitNotifications) {
+	return true;
+  } else {
+	return false;
+  }
+}
+// Request permission for this page to send notifications. If allowed,
+// calls function "cb" with true.
+Notifier.prototype.RequestPermission = function(cb) {
+  window.webkitNotifications.requestPermission(function() {
+	if (cb) { cb(window.webkitNotifications.checkPermission() == 0); }
+  });
+}
+// Popup a notification with icon, title, and body. Returns false if
+// permission was not granted.
+Notifier.prototype.Notify = function(icon, title, body) {
+  if (window.webkitNotifications.checkPermission() == 0) {
+	var popup = window.webkitNotifications.createNotification(
+	icon, title, body);
+	popup.show();
+	return true;
+  }
+  return false;
+}

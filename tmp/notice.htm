@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta name="description" content="xxx" />
+    <meta name="keywords" content="print" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>SpongeTime - 贴士提醒</title>
+    <link rel='stylesheet' href='templates/css/pager.css' />
+    <link rel='stylesheet' href='templates/css/jquery-ui.css' />
+    <link rel='stylesheet' href='templates/css/datepicker.css' />
+    <script src='templates/js/jquery.min.js'></script>
+    <script src='templates/js/jquery-ui.min.js'></script>
+    <script src='templates/js/ajax.js'></script>
+    <script src='templates/js/jquery.timepicker.min.js'></script>
+    <script src='templates/js/page.js'></script>
+</head>
+<div id="wrapper">
+<header>
+<img src="templates/img/logo.png"><p class="separator"></p></header><a class="back" href="member.php"><img src="templates/img/back.png"></a><script>showSchedule(2);</script><div id="manager">
+    <p class="small_title">添加自律小贴士</p>
+    <p class="separator"><p/>
+    <form  id="form">   
+        <label> 我要注意的事情</label><br><br>
+        <label> 每天:</label>
+        <input class="button" type="button" name="date_type" id="check-1" value="day" onmousedown="this.className='btn_down'" onmouseup="this.className='form_button'" checked="">&nbsp;
+        <label> 每周:</label>
+        <input class="form_button" type="button" name="date_type" id="check-2" value="week" onmousedown="this.className='btn_down'" onmouseup="this.className='form_button'" checked="">&nbsp;
+        <label> 自定:</label>
+        <input class="form_button" type="button" name="date_type" id="check-3" value="custom" onmousedown="this.className='btn_down'" onmouseup="this.className='form_button'" checked=""><br/>
+        <div class="check-1">
+            <label for="daily">何时提醒:</label>
+            <input class="input_6" type="text" id="daily_time" name="daily_time" /><br>
+        </div>
+        <div class="check-2">
+            <label for="weekly">日期:</label>
+            <select class="input_6" id="weekly" name="weekly" />
+                <option value="1">周一</option>
+                <option value="2">周二</option>
+                <option value="3">周三</option>
+                <option value="4">周四</option>
+                <option value="5">周五</option>
+                <option value="6">周六</option>
+                <option value="7">周日</option>
+            </select>&nbsp;&nbsp;
+            <label for="time">何时提醒:</label>
+            <input class="input_6" type="text" id="weekly_time" name="weekly_time" /><br>
+        </div>
+        <div class="check-3">
+            <label for="date">日期:</label>
+            <input class="input_6" type="text" id="custom" name="custom" /><br/>
+            <label for="time">何时提醒:</label>
+            <input class="input_6" type="text" id="custom_time" name="custom_time" /> 
+        </div>
+
+        <label for="content">内容:</label>
+        <input class="input_12" type="text" id="content" name="content" /><br/>
+        <input class="form_button" type="reset" value="重置" onmousedown="this.className='btn_down'" onmouseup="this.className='form_button'"/>
+        <input class="form_button" type="button" value="提交" onmousedown="this.className='btn_down'" onmouseup="this.className='form_button'" onclick="javascript: addNot();"/>
+    </form>
+</div><div id="info">
+<p id="status" class="small_title"></p>
+<article id="sch_list"><p>2011.10.19的18:00&nbsp;&nbsp;提醒:晚八点，A‘ltra演出，在愚公移山&nbsp;<img src="templates/img/edit.png" alt="修改" onclick="javascript: updateDo(,
+			'',
+			'',
+			'',
+			'');">&nbsp;<img src="templates/img/delete.png" alt="删除" onclick="javascript: deleteIt(26);"></p><p>每个星期6的11:00&nbsp;&nbsp;提醒:下午例行打球，不要忘记提前通知大家！&nbsp;<img src="templates/img/edit.png" alt="修改" onclick="javascript: updateDo(,
+			'',
+			'',
+			'',
+			'');">&nbsp;<img src="templates/img/delete.png" alt="删除" onclick="javascript: deleteIt(25);"></p><p>每天的07:00&nbsp;&nbsp;提醒:好好吃早餐！&nbsp;<img src="templates/img/edit.png" alt="修改" onclick="javascript: updateDo(,
+			'',
+			'',
+			'',
+			'');">&nbsp;<img src="templates/img/delete.png" alt="删除" onclick="javascript: deleteIt(21);"></p></article>
+</div>
+    </div>
+    </html>

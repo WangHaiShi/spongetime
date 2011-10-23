@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta name="description" content="xxx" />
+    <meta name="keywords" content="print" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>SpongeTime</title>
+    <link rel='stylesheet' href='templates/css/memer.css' />
+    <link rel='stylesheet' href='templates/css/jquery.checkbox.css' />
+    <script src='templates/js/jquery.min.js'></script>
+    <script src='templates/js/jquery.path.js'></script>
+    <script src='templates/js/jquery.checkbox.js'></script>
+    <script src='templates/js/mem.js'></script>
+    <script src='templates/js/ajax.js'></script>
+</head>
+<div id="wrapper">
+<header>
+<img src="templates/img/logo.png"><hr></header><div id="navigation">
+<nav>
+    <ul id="menu">
+        <li><a id="account" class="account" href="#">账户</a></li>
+        <li><a id="plan" class="plan" href="#">任务与提醒</a></li>
+        <li><a id="lookover" class="lookover" href="#">好友</a></li>
+    </ul>
+</nav>
+<nav id="menu_account" class="nav_list">
+    <ul>
+        <li><a href="account.php">账户设置</a></li>
+        <li><a href="#">个人资料</a></li>
+        <li><a href="logout.php">退出</a></li>
+    </ul>
+</nav>
+<nav id="menu_plan" class="nav_list">
+    <ul>
+        <li><a href="add_do_form.php">任务单</a></li>
+        <li><a href="add_not_form.php">提醒</a></li>
+        <li><a href="custom_form.php">个性化定制</a></li>
+    </ul>
+</nav>
+<nav id="menu_lookover" class="nav_list">
+    <ul>
+        <li><a href="#">邀请新朋友</a></li>
+        <li><a href="#">查看</a></li>
+    </ul>
+</nav>
+</div><div id="schedule"><script type="text/javascript">
+$(function(){   
+    var date=$('p[name="date"]').attr("id");
+    $("#prev").click(function(){        
+        //alert(date);
+        showSchedule('prev',date);
+    });
+    $("#next").click(function(){
+        //alert(date);
+        showSchedule('next',date);
+    });
+});
+</script><article><header>今日计划<br>&nbsp;&nbsp;——2011.10.15</header><p class="smallfont">08:00~08:30&nbsp;&nbsp;吃早餐，查看邮件及社交网站更新---------------------------------&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(45);"/></p> <p class="smallfont">09:00~10:30&nbsp;&nbsp;听歌，练琴&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(46);"/></p> <p class="smallfont">11:00~12:00&nbsp;&nbsp;为网站添加二级页导航&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(47);"/></p> <p class="smallfont">14:00~15:00&nbsp;&nbsp;去书店看书：《Git》、《python》&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(48);"/></p> <p class="smallfont">16:00~18:00&nbsp;&nbsp;打游戏，娱乐&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(49);"/></p> <p class="smallfont">20:00~22:00&nbsp;&nbsp;修改玩站bug，并记录&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(50);"/></p> <p class="smallfont">22:30~23:00&nbsp;&nbsp;看书&nbsp;&nbsp;<input style="cursor:pointer" type="checkbox" onchange="javascript: scoring(51);"/></p> </article></div>
+    </div>
+    </html>
